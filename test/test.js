@@ -56,7 +56,8 @@ describe( 'compute-msum', function tests() {
 			null,
 			NaN,
 			function(){},
-			{}
+			{},
+			[]
 		];
 
 		var testdata = [3,5,6,8,7,5,4,3,2,5,6,7,8,5,4]
