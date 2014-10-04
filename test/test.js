@@ -60,7 +60,7 @@ describe( 'compute-msum', function tests() {
 			[]
 		];
 
-		var testdata = [3,5,6,8,7,5,4,3,2,5,6,7,8,5,4]
+		var testdata = [3,5,6,8,7,5,4,3,2,5,6,7,8,5,4];
 
 		for ( var i = 0; i < values.length; i++ ) {
 			expect( badValue( values[i] ) ).to.throw( TypeError );
@@ -73,8 +73,22 @@ describe( 'compute-msum', function tests() {
 
 	});
 
+	it( 'should throw an error if the window size is smaller than the array size', function test() {
+
+		var testdata = [3,5,6,8,7,5,4,3,2,5,6,7,8,5,4];
+
+		expect( testValue( 20 ) ).to.throw( TypeError );
+
+		function testValue( value ) {
+			return function() {
+				msum( testdata , value);
+			}
+		}
+
+	});
+
 	it( 'should compute the sum in the window', function test() {
-		var data, expected;
+		var data, expected; 
 
 		// Simulate some data
 		data = [ 2, 4, 4, 6, 2, 3, 5, 1, 5, 3, 7, 5 ];

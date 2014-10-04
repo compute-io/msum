@@ -78,17 +78,17 @@ Copyright &copy; 2014. Rebekah Smith.
 [npm-image]: http://img.shields.io/npm/v/compute-msum.svg
 [npm-url]: https://npmjs.org/package/compute-msum
 
-[travis-image]: http://img.shields.io/travis/compute-io//master.svg
-[travis-url]: https://travis-ci.org/compute-io/
+[travis-image]: http://img.shields.io/travis/compute-io/msum/master.svg
+[travis-url]: https://travis-ci.org/compute-io/msum
 
-[coveralls-image]: https://img.shields.io/coveralls/compute-io//master.svg
-[coveralls-url]: https://coveralls.io/r/compute-io/?branch=master
+[coveralls-image]: https://img.shields.io/coveralls/compute-io/msum/master.svg
+[coveralls-url]: https://coveralls.io/r/compute-io/msum?branch=master
 
-[dependencies-image]: http://img.shields.io/david/compute-io/.svg
-[dependencies-url]: https://david-dm.org/compute-io/
+[dependencies-image]: http://img.shields.io/david/compute-io/msum.svg
+[dependencies-url]: https://david-dm.org/compute-io/msum
 
-[dev-dependencies-image]: http://img.shields.io/david/dev/compute-io/.svg
-[dev-dependencies-url]: https://david-dm.org/dev/compute-io/
+[dev-dependencies-image]: http://img.shields.io/david/dev/compute-io/msum.svg
+[dev-dependencies-url]: https://david-dm.org/dev/compute-io/msum
 
-[github-issues-image]: http://img.shields.io/github/issues/compute-io/.svg
-[github-issues-url]: https://github.com/compute-io//issues
+[github-issues-image]: http://img.shields.io/github/issues/compute-io/msum.svg
+[github-issues-url]: https://github.com/compute-io/msum/issues

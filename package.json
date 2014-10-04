@@ -20,7 +20,7 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/compute-io/.git"
+    "url": "git://github.com/compute-io/msum.git"
   },
   "keywords": [
     "compute.io",
@@ -31,7 +31,7 @@
     "window"
   ],
   "bugs": {
-    "url": "https://github.com/compute-io//issues"
+    "url": "https://github.com/compute-io/msum/issues"
   },
   "dependencies": {},
   "devDependencies": {
