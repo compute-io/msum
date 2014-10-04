@@ -19,15 +19,13 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var lib = require( 'compute-msum' );
+var msum = require( 'compute-msum' );
 ```
 
 
 ## Examples
 
 ``` javascript
-var msum = require( 'compute-msum' );
-
 var data = new Array( 50 );
 
 for ( var i = 0; i < data.length; i++ ) {
