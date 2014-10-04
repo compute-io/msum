@@ -26,7 +26,20 @@ var lib = require( 'compute-msum' );
 ## Examples
 
 ``` javascript
-var lib = require( 'compute-msum' );
+var msum = require( 'compute-msum' );
+
+var data = new Array( 50 );
+
+for ( var i = 0; i < data.length; i++ ) {
+	data[i] = Math.random() * 100;
+}
+
+// Give function array of data and desired window size
+var outArr = msum( data, 7 );
+
+for ( i = 0; i < outArr.length; i++) {
+	console.log( outArr[i] );
+}
 ```
 
 To run the example code from the top-level application directory,
