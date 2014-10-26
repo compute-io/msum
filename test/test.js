@@ -83,7 +83,10 @@ describe( 'compute-msum', function tests() {
 	});
 
 	it( 'should compute a moving sum', function test() {
-		var data, actual, expected;
+		var data, actual, expected, W;
+
+		// Define a window size:
+		W = 3;
 
 		// Simulate some data:
 		data = [ 2, 4, 4, 6, 2, 3, 5, 1, 5, 3, 7, 5 ];
@@ -91,8 +94,9 @@ describe( 'compute-msum', function tests() {
 		// Expected values:
 		expected = [ 10, 14, 12, 11, 10, 9, 11, 9, 15, 15 ];
 
-		actual = msum ( data , 3 );
+		actual = msum ( data , W );
 
+		assert.strictEqual( actual.length, data.length-W+1 );
 		assert.deepEqual( actual, expected );
 	});
 
