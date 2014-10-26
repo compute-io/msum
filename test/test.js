@@ -46,7 +46,7 @@ describe( 'compute-msum', function tests() {
 
 	});
 
-	it( 'should throw an error if not provided a positive, numeric, integer window size', function test() {
+	it( 'should throw an error if not provided a window size which is a positive integer', function test() {
 		var values = [
 			'5',
 			2.7,
@@ -60,47 +60,40 @@ describe( 'compute-msum', function tests() {
 			[]
 		];
 
-		var testdata = [3,5,6,8,7,5,4,3,2,5,6,7,8,5,4];
-
 		for ( var i = 0; i < values.length; i++ ) {
 			expect( badValue( values[i] ) ).to.throw( TypeError );
 		}
 		function badValue( value ) {
 			return function() {
-				msum( testdata , value );
+				msum( [] , value );
 			};
 		}
 
 	});
 
-	it( 'should throw an error if the window size is smaller than the array size', function test() {
+	it( 'should throw an error if the window size is exceeds the array size', function test() {
+		var data = [ 1, 2, 3 ];
 
-		var testdata = [3,5,6,8,7,5,4,3,2,5,6,7,8,5,4];
+		expect( foo ).to.throw( Error );
 
-		expect( testValue( 20 ) ).to.throw( TypeError );
-
-		function testValue( value ) {
-			return function() {
-				msum( testdata , value);
-			}
+		function foo() {
+			msum( data, data.length+1 );
 		}
 
 	});
 
-	it( 'should compute the sum in the window', function test() {
-		var data, expected; 
+	it( 'should compute a moving sum', function test() {
+		var data, actual, expected;
 
-		// Simulate some data
+		// Simulate some data:
 		data = [ 2, 4, 4, 6, 2, 3, 5, 1, 5, 3, 7, 5 ];
 
-		// Expected values of sum in the moving window
-		expected = [10 , 14, 12, 11, 10, 9, 11, 9, 15, 15];
+		// Expected values:
+		expected = [ 10, 14, 12, 11, 10, 9, 11, 9, 15, 15 ];
 
-		var testOut = msum ( data , 3 );
+		actual = msum ( data , 3 );
 
-		for ( var i = 0; i < expected.length; i++ ) {
-			assert.strictEqual( testOut[i], expected[i] );
-		}
+		assert.deepEqual( actual, expected );
 	});
 
 }); // end test descriptions
