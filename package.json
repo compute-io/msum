@@ -1,6 +1,6 @@
 {
   "name": "compute-msum",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Computes a moving sum over a numeric array.",
   "author": {
     "name": "Rebekah Smith",
