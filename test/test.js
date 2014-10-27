@@ -94,10 +94,10 @@ describe( 'compute-msum', function tests() {
 		// Expected values:
 		expected = [ 10, 14, 12, 11, 10, 9, 11, 9, 15, 15 ];
 
-		actual = msum ( data , W );
+		actual = msum( data , W );
 
 		assert.strictEqual( actual.length, data.length-W+1 );
 		assert.deepEqual( actual, expected );
 	});
 
-}); // end test descriptions
+});
