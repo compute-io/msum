@@ -71,7 +71,7 @@ describe( 'compute-msum', function tests() {
 
 	});
 
-	it( 'should throw an error if the window size is exceeds the array size', function test() {
+	it( 'should throw an error if the window size exceeds the array size', function test() {
 		var data = [ 1, 2, 3 ];
 
 		expect( foo ).to.throw( Error );
