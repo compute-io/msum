@@ -1,3 +1,4 @@
+'use strict';
 
 // MODULES //
 
@@ -17,7 +18,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'compute-msum', function tests() {
-	'use strict';
 
 	it( 'should export a function', function test() {
 		expect( msum ).to.be.a( 'function' );
@@ -82,6 +82,29 @@ describe( 'compute-msum', function tests() {
 
 	});
 
+	it( 'should throw an error if provided an accessor which is not a function', function test() {
+		var values = [
+			'5',
+			5,
+			true,
+			undefined,
+			null,
+			NaN,
+			[],
+			{}
+		];
+
+		for ( var i = 0; i < values.length; i++ ) {
+			expect( badValue( values[ i ] ) ).to.throw( TypeError );
+		}
+
+		function badValue( value ) {
+			return function() {
+				msum( [1,2,3,4,5], 2, value );
+			};
+		}
+	});
+
 	it( 'should compute a moving sum', function test() {
 		var data, actual, expected, W;
 
@@ -95,6 +118,31 @@ describe( 'compute-msum', function tests() {
 		expected = [ 10, 14, 12, 11, 10, 9, 11, 9, 15, 15 ];
 
 		actual = msum( data , W );
+
+		assert.strictEqual( actual.length, data.length-W+1 );
+		assert.deepEqual( actual, expected );
+	});
+
+	it( 'should compute a moving sum using an accessor function', function test() {
+		var data, actual, expected, W;
+
+		W = 3;
+		data = [
+			{'x':1},
+			{'x':2},
+			{'x':3},
+			{'x':4},
+			{'x':5},
+			{'x':6}
+		];
+
+		function getValue( d ) {
+			return d.x;
+		}
+
+		expected = [ 6 , 9 , 12 , 15 ];
+
+		actual = msum( data, W, getValue );
 
 		assert.strictEqual( actual.length, data.length-W+1 );
 		assert.deepEqual( actual, expected );
