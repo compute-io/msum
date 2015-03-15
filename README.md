@@ -49,6 +49,7 @@ function getValue( d ) {
 
 var values = msum( arr, 2, getValue );
 // returns [ 3 , 5 , 7 ]
+```
 
 
 ## Examples
