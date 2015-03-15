@@ -2,7 +2,7 @@ Moving Sum
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes a moving sum over a numeric array.
+> Computes a moving sum over an array.
 
 
 ## Installation
@@ -20,18 +20,35 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 var msum = require( 'compute-msum' );
 ```
 
-#### msum( arr, window )
+#### msum( arr, window[, accessor] )
 
-Slides a `window` over a numeric `array` to compute a moving sum.
+Slides a `window` over an `array` to compute a moving sum. For numeric `arrays`,
 
 ``` javascript
-var data = [ 1, 2, 3, 4, 5 ];
+var arr = [ 1, 2, 3, 4, 5 ];
 
-msum( data, 2 );
+var values = msum( arr, 2 );
 // returns [ 3, 5, 7, 9 ]
 ```
 
 Note: the returned `array` has length `L - W + 1`, where `L` is the length of the input `array` and `W` is the `window` size. 
+
+For non-numeric `arrays`, provide an accessor `function` for accessing numeric `array` values.
+
+``` javascript
+var arr = [
+	{‘x’:1},
+	{‘x’:2},
+	{‘x’:3},
+	{‘x’:4}
+];
+
+function getValue( d ) {
+	return d.x;
+}
+
+var values = msum( arr, 2, getValue );
+// returns [ 3 , 5 , 7 ]
 
 
 ## Examples
@@ -39,14 +56,12 @@ Note: the returned `array` has length `L - W + 1`, where `L` is the length of th
 ``` javascript
 var msum = require( 'compute-msum' );
 
-// Simulate some data...
 var data = new Array( 50 );
 
 for ( var i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.random() * 100;
 }
 
-// Compute the moving sum:
 var arr = msum( data, 7 );
 
 console.log( arr.join( '\n' ) );
