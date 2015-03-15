@@ -8,6 +8,6 @@ for ( var i = 0; i < data.length; i++ ) {
 }
 
 // Compute the moving sum:
-var arr = msum( data, 8 );
+var values = msum( data, 8 );
 
-console.log( arr.join( '\n' ) );
+console.log( values.join( '\n' ) );

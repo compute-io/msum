@@ -63,9 +63,9 @@ for ( var i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.random() * 100;
 }
 
-var arr = msum( data, 7 );
+var values = msum( data, 7 );
 
-console.log( arr.join( '\n' ) );
+console.log( values.join( '\n' ) );
 ```
 
 To run the example code from the top-level application directory,
