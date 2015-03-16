@@ -1,7 +1,7 @@
 {
   "name": "compute-msum",
   "version": "1.0.0",
-  "description": "Computes a moving sum over a numeric array.",
+  "description": "Computes a moving sum over an array.",
   "author": {
     "name": "Rebekah Smith",
     "email": "rebekahjs17@gmail.com"
@@ -38,13 +38,19 @@
     "sum",
     "moving",
     "window",
-    "sliding"
+    "sliding",
+    "array",
+    "numeric array"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/msum/issues"
   },
   "dependencies": {
-    "validate.io-array": "^1.0.3"
+    "validate.io-array": "^1.0.3",
+    "validate.io-boolean-primitive": "^1.0.0",
+    "validate.io-function": "^1.0.2",
+    "validate.io-object": "^1.0.3",
+    "validate.io-positive-integer": "^1.0.0"
   },
   "devDependencies": {
     "chai": "2.x.x",
