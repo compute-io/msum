@@ -20,7 +20,7 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 var msum = require( 'compute-msum' );
 ```
 
-#### msum( arr, window[, accessor] )
+#### msum( arr, window[, options] )
 
 Slides a `window` over an `array` to compute a moving sum. For numeric `arrays`,
 
@@ -29,9 +29,26 @@ var arr = [ 1, 2, 3, 4, 5 ];
 
 var values = msum( arr, 2 );
 // returns [ 3, 5, 7, 9 ]
-```
+``` 
 
-Note: the returned `array` has length `L - W + 1`, where `L` is the length of the input `array` and `W` is the `window` size. 
+The function accepts two `options`:
+
+* 	__copy__: `boolean` indicating whether to return a new `array` containing the computed sums. Default: `true`.
+*	__accessor__: accessor `function` for accessing values in object `arrays`.
+
+To mutate the input `array` (e.g., when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
+
+``` javascript
+var arr = [ 1, 2, 3, 4, 5 ];
+
+var values = msum( arr, 2,{
+	'copy': false
+});
+// returns [ 3, 5, 7, 9 ]
+
+console.log( arr === values );
+// returns true
+```
 
 For non-numeric `arrays`, provide an accessor `function` for accessing numeric `array` values.
 
@@ -48,8 +65,10 @@ function getValue( d ) {
 }
 
 var values = msum( arr, 2, getValue );
-// returns [ 3 , 5 , 7 ]
+// returns [ 3, 5, 7 ]
 ```
+
+__Note__: the returned `array` has length `L - W + 1`, where `L` is the length of the input `array` and `W` is the `window` size.
 
 
 ## Examples
@@ -58,13 +77,10 @@ var values = msum( arr, 2, getValue );
 var msum = require( 'compute-msum' );
 
 var data = new Array( 50 );
-
 for ( var i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.random() * 100;
 }
-
-var values = msum( data, 7 );
-
+var values = msum( data, 8 );
 console.log( values.join( '\n' ) );
 ```
 
@@ -111,7 +127,7 @@ $ make view-cov
 
 ## Copyright
 
-Copyright &copy; 2014. Rebekah Smith.
+Copyright &copy; 2014-2015. Rebekah Smith.
 
 
 [npm-image]: http://img.shields.io/npm/v/compute-msum.svg

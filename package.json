@@ -38,15 +38,18 @@
     "sum",
     "moving",
     "window",
-    "sliding"
+    "sliding",
+    "array",
+    "numeric array"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/msum/issues"
   },
   "dependencies": {
     "validate.io-array": "^1.0.3",
+    "validate.io-boolean-primitive": "^1.0.0",
     "validate.io-function": "^1.0.2",
-    "validate.io-number": "^1.0.3",
+    "validate.io-object": "^1.0.3",
     "validate.io-positive-integer": "^1.0.0"
   },
   "devDependencies": {
