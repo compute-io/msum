@@ -41,7 +41,7 @@ To mutate the input `array` (e.g., when input values can be discarded or when op
 ``` javascript
 var arr = [ 1, 2, 3, 4, 5 ];
 
-var values = msum( arr, 2,{
+var values = msum( arr, 2, {
 	'copy': false
 });
 // returns [ 3, 5, 7, 9 ]
