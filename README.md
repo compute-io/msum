@@ -64,7 +64,9 @@ function getValue( d ) {
 	return d.x;
 }
 
-var values = msum( arr, 2, getValue );
+var values = msum( arr, 2, {
+	'accessor': getValue
+});
 // returns [ 3, 5, 7 ]
 ```
 
